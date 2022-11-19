@@ -6,9 +6,7 @@ console.log('***** Cart Functions *****');
 // establish basket to put items into
 let basket = [];
 const maxItems = 5;
-console.log('Ready to buy groceries. Basket is empty:', + basket);
-// just playing with concatenation and logging; learning syntax differences
-console.log('Basket is', basket);
+console.log('Ready to buy groceries. Basket is empty:', basket);
 console.log(`Basket can hold ${maxItems} items.`);
 
 
@@ -16,36 +14,36 @@ console.log(`Basket can hold ${maxItems} items.`);
 function addItem(item) {
     if (isFull() === false) {
         basket.push(item);
-        console.log(`Item added: ${item}`);
+        console.log('Item added:', item);
         return true;
     } else {
+        console.log('Basket full');
         return false;
     }
-    
 }
-console.log(`Apples added (expect true) ${addItem('apples')}`);
-console.log(`Bread added (expect true) ${addItem('bread')}`);
-console.log(`Candy added (expect true) ${addItem('candy')}`);
-console.log(`Drinks added (expect true) ${addItem('drinks')}`);
-console.log('Basket is now:', basket);
-console.log(`Basket is full: ${isFull()}`);
-console.log(addItem('eggs'));
-console.log('Test - adding fruit:', addItem('fruit'));
-console.log('Basket is now:', basket);
+console.log('Apples added (expect true)', addItem('apples'));
+console.log('Bread added (expect true)', addItem('bread'));
+console.log('Candy added (expect true)', addItem('candy'));
+console.log('Drinks added (expect true)', addItem('drinks'));
+console.log(`Basket is now: ${basket}`);
+console.log('Basket is full:', isFull());
+console.log('Eggs added (expect true)', addItem('eggs'));
+console.log(`Basket is now: ${basket}`);
+console.log('Fruit added (expect false)', addItem('fruit'));
 
 
-// removes items from basket
+// removes item from basket
 function removeItem(item, index) {    
-    basket.indexOf(item, index);
-    basket.splice(index, 1);
-    if () {
+    basket.indexOf(item);
+    if (basket[index] === item) {
+        basket.splice(index, 1);
         return item;
     } else {
         return null;
     }
 }
-console.log('Should be candy:', removeItem('candy', 2));
-console.log('Should be null:', removeItem('fruit', 2));
+console.log('Candy removed (expect candy)', removeItem('candy', 2));
+console.log('Candy removed (expect null)', removeItem('candy', 2));
 
 
 // listing items in basket
@@ -66,13 +64,19 @@ function isFull() {
         return true;
     }
 }
-console.log(`Basket is full: ${isFull()}`);
+console.log('Basket is full:', isFull());
+
+
+// adding fruit
+console.log('Fruit added (expect true)', addItem('fruit'));
+console.log(`Basket is now: ${basket}`);
+console.log('Basket is full:', isFull());
+console.log('Time to purchase groceries!');
 
 
 // empties basket
 function empty() {
     basket.splice(0);
-    console.log(basket);
+    return basket;
 }
-console.log('The basket is now empty:');
-empty();
+console.log('The basket is now empty:', empty());
