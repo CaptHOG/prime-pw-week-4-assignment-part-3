@@ -30,7 +30,22 @@ console.log(`Drinks added (expect true) ${addItem('drinks')}`);
 console.log('Basket is now:', basket);
 console.log(`Basket is full: ${isFull()}`);
 console.log(addItem('eggs'));
+console.log('Test - adding fruit:', addItem('fruit'));
 console.log('Basket is now:', basket);
+
+
+// removes items from basket
+function removeItem(item, index) {    
+    basket.indexOf(item, index);
+    basket.splice(index, 1);
+    if () {
+        return item;
+    } else {
+        return null;
+    }
+}
+console.log('Should be candy:', removeItem('candy', 2));
+console.log('Should be null:', removeItem('fruit', 2));
 
 
 // listing items in basket
